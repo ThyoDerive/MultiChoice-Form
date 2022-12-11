@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+<body>
+  <main>
+
+
+    <section id="StepSection">
+      <ul class="StepContainer">
+        <li class="Step">
+          <p class="NumberStep StepActive">1</p>
+          <span class="InformationStep">
+            <p class="InformationStep-First">Step 1</p>
+            <p class="NameInformation">Your Info</p>
+          </span>
+        </li>
+        <li class="Step">
+          <p class="NumberStep">2</p>
+          <span class="InformationStep">
+            <p class="InformationStep-First">Step 2</p>
+            <p class="NameInformation">Select Plan</p>
+          </span>
+        </li>
+        <li class="Step">
+          <p class="NumberStep">3</p>
+          <span class="InformationStep">
+            <p class="InformationStep-First">Step 3</p>
+            <p class="NameInformation">Add-Ons</p>
+          </span>
+        </li>
+        <li class="Step">
+          <p class="NumberStep">4</p>
+          <span class="InformationStep">
+            <p class="InformationStep-First">Step 4</p>
+            <p class="NameInformation">Summary</p>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+
+    <section id="SectionUser">
+
+      <div id="Personal">
+        <div class="TopUserSide">
+          <h1 class="NameSide">Personal info</h1>
+          <p class="DescriptionSide">Please provide your name, email adress, and phone number.</p>
+        </div>
+        <form class="FormPersonal">
+          <label for="Name" id="Label">
+            <p>Name</p>
+            <input type="text" id="Input" required placeholder="e.g Thyo Derive">
+          </label>
+          <label for="Name" id="Label">
+            <p>Email Adress</p>
+            <input type="text" id="Input" required placeholder="e.g derivetheo96@gmail.com">
+          </label>
+          <label for="Name" id="Label">
+            <p>Phone Number</p>
+            <input type="text" id="Input" required placeholder="e.g +1 234 567 890">
+          </label>
+          <button class="Submit" type="button" onclick="NextClick(2)">Next Step</button>
+        </form>
+      </div>
+
+
+      <section id="Plan">
+        <div class="TopUserSide">
+          <h1 class="NameSide">Select your plan</h1>
+          <p class="DescriptionSide">Your have the option of monthly or yearly billing.</p>
+        </div>
+        <div class="ChoicePlanContainer">
+          <Div class="Plan" onclick="SelectPlan(0)">
+            <img src="./assets/images/icon-arcade.svg" class="ImgPlan">
+            <span>
+              <h3 class="TitlePlan">Arcade</h3>
+              <p class="PricePlan">$9/mo</p>
+            </span>
+          </Div>
+          <Div class="Plan" onclick="SelectPlan(1)">
+            <img src="./assets/images/icon-advanced.svg" alt="" class="ImgPlan">
+            <span>
+              <h3 class="TitlePlan">Advanced</h3>
+              <p class="PricePlan">$12/mo</p>
+            </span>
+          </Div>
+          <Div class="Plan" onclick="SelectPlan(2)">
+            <img src="./assets/images/icon-pro.svg" alt="" class="ImgPlan">
+            <span>
+              <h3 class="TitlePlan">Pro</h3>
+              <p class="PricePlan">$15/mo</p>
+            </span>
+          </Div>
+          </div>
+          <div class="BillingChoice">
+              <p class="Month">Monthly</p>
+              <label class="switch">
+                <input type="checkbox" id="Checkbox" checked="false" onclick="CheckSelect()">
+                <span class="slider round"></span>
+              </label>
+              <p class="Year">Yearly</p>
+          </div>
+
+          <div class="ButtonSection">
+            <button class="Back" onclick="BackClick(2)">Go Back</button>
+            <button class="Submit" onclick="NextClick(3)">Next Step</button>
+          </div>
+      </section>
+
+      <section id="Add">
+        <div class="TopUserSide">
+          <h1 class="NameSide">Picks add-ons</h1>
+          <p class="DescriptionSide">Add-ons help enhance your gaming experiance.</p>
+        </div>
+        <form class="FormPersonal">
+          <label for="Name" id="LabelAdd">
+            <input type="checkbox" id="CheckBox" onclick="ChoiceAddons(0)">
+            <div class="InformationAdds">
+              <h3 class="AddTitle">Online service</h3>
+              <p class="AddDescription">Access to multiplayer games</p>
+            </div>
+            <p class="AddPrice">+$1/mo</p>
+          </label>
+          <label for="Name" id="LabelAdd">
+            <input type="checkbox" id="CheckBox" onclick="ChoiceAddons(1)">
+            <div class="InformationAdds">
+              <h3 class="AddTitle">Large storage</h3>
+              <p class="AddDescription">Extra 1TB of cloud save</p>
+            </div>
+            <p class="AddPrice">+$2/mo</p>
+          </label>
+          <label for="Name" id="LabelAdd">
+            <input type="checkbox" id="CheckBox" onclick="ChoiceAddons(2)">
+            <div class="InformationAdds">
+              <h3 class="AddTitle">Customizable profile</h3>
+              <p class="AddDescription">Custom theme on your profile</p>
+            </div>
+            <p class="AddPrice">+$2/mo</p>
+          </label>
+          <div class="ButtonSection">
+            <button class="Back" type="button" onclick="BackClick(3)">Go Back</button>
+            <button class="Submit" type="button" onclick="NextClick(4); Final()">Next Step</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="Finish">
+        <div class="TopUserSide">
+          <h1 class="NameSide">Finishing up</h1>
+          <p class="DescriptionSide">Double check everything look OK befor confirming.</p>
+        </div>
+        <div id="Bill">
+          <div class="TopBill">
+            <div class="TopBill-Left">
+              <p class="ChoiceValid"><span class="PlanChoiced"></span> (<span class="TypePayChoiced"></span>)</p>
+              <button type="button" onclick="BackClick(3)" class="LinkChange">Change</button>
+            </div>
+            <p class="PriceChoice">$9/mo</p>
+          </div>
+          <div class="BottomBill">
+            <ul class="Add-onsContainer">
+              <li class="Adds">
+                <p class="AddTitle">Online service</p>
+                <p class="PriceAdd">+$1/mo</p>
+              </li>
+              <li class="Adds">
+                <p class="AddTitle">Larger storage</p>
+                <p class="PriceAdd">+$2/mo</p>
+              </li>
+              <li class="Adds">
+                <p class="AddTitle">Customizable profile</p>
+                <p class="PriceAdd">+$2/mo</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="Result">
+          <p class="TotalText">Total (per <span class="TypePayChoiced"></span>)</p>
+          <p class="Total">+$<span class="TotalPrice"></span>/<span class="TypePayChoiced"></span></p>
+        </div>
+
+        <div class="ButtonSection">
+          <button class="Back" onclick="BackClick(4)">Go Back</button>
+        </div>
+      </section>
+
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

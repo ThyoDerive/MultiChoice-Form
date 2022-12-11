@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Left side */
+
+#StepSection {
+    position: fixed;
+    left: 2%;
+    top: 2.5%;
+    width: 30%;
+    height: 95%;
+    background-image: url('./assets/images/bg-sidebar-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    border-radius: 14px;
+    margin-left: 20px;
+}
+
+.StepContainer {
+    margin: 1% 30px;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.Step {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    color: white;
+    font-weight: 700;
+}
+
+.NumberStep {
+    padding: 15px 21px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-right: 10%;
+    font-size: 1.3rem;
+}
+
+.StepActive {
+    background: hsl(228, 100%, 84%);
+    color: hsl(213, 96%, 18%);
+    border: 0;
+}
+
+.InformationStep-First {
+    font-weight: lighter;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.NameInformation {
+    text-transform: uppercase;
+}
+
+/* Right Side */
+
+#SectionUser {
+    width:70%;
+    height: 100%;
+    margin-left: auto;
+    padding: 5% 10px 5% 130px;
+    transition: transform 0.5s;
+}
+
+#Personal, #Plan, #Add, #Finish {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    margin-bottom: 20%;
+}
+
+.NameSide {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: hsl(213, 96%, 18%);;
+}
+
+.DescriptionSide {
+    color: hsl(231, 11%, 63%);
+    font-size: 1.2rem;
+    word-spacing: 5px;
+}
+
+.FormPersonal {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+label {
+    width: 100%;
+}
+
+#Label > p {
+    color: hsl(213, 96%, 18%);
+    font-weight: 500;
+}
+
+#Input{
+    margin-top: 10px;
+    padding: 17px 10px;
+    width: 100%;
+    border: 1px solid hsl(231, 11%, 63%);
+    background: transparent;
+    border-radius: 9px;
+    font-size: 1rem;
+}
+
+#Input:focus {
+    border: 1px solid hsl(213, 96%, 18%);
+    outline: 0;
+}
+
+.Submit {
+    padding: 15px 20px;
+    background: hsl(213, 96%, 18%);
+    color: white;
+    border: 0;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.1s;
+    margin-left: auto;
+}
+
+.Submit:hover {
+    background: hsl(243, 100%, 62%);
+}
+
+/* Choice Plan side */
+
+.ChoicePlanContainer {
+    margin-top:25px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Plan {
+    width: 25%;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    border: 1px solid hsl(231, 11%, 63%);
+    border-radius: 14px;
+    padding: 10px;
+    color: hsl(213, 96%, 18%);
+    transition: border 0.2s;
+    cursor: pointer;
+}
+
+.PlanActive {
+    background-color: hsla(206, 94%, 87%, 0.24);
+    border: 1px solid hsl(243, 100%, 62%);
+}
+
+.Plan:hover {
+    border: 1px solid hsl(213, 96%, 18%);
+}
+
+.PricePlan {    
+    color: hsl(231, 11%, 63%);
+    margin-top: 5px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+    margin: 0 20px;
+}
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(213, 96%, 18%);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: hsl(213, 96%, 18%);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px hsl(213, 96%, 18%);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(35px);
+    -ms-transform: translateX(35px);
+    transform: translateX(35px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+.BillingChoice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: hsla(206, 94%, 87%, 0.24);
+    width: 80%;
+    padding: 10px 0;
+    border-radius: 9px;
+}
+
+.BillingChoice > p {
+    color:hsl(231, 11%, 63%);
+    font-weight: 700;
+}
+
+.ButtonSection {
+    width: 84%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Back {
+    background: transparent;
+    font-size: 1rem;
+    color: hsl(231, 11%, 63%);
+    border: 0;
+    cursor: pointer;
+}
+
+/* Add-on */
+
+#LabelAdd {
+    width: 84%;
+    padding: 20px 20px;
+    border: 1px solid hsl(243, 100%, 62%);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    transition: border 0.2s;
+    cursor: pointer;
+}
+
+#LabelAdd:hover {
+    border: 1px solid hsl(213, 96%, 18%);
+}
+
+.LabelAddActive {
+    background: hsla(206, 94%, 87%, 0.24);
+}
+
+.InformationAdds {
+    margin-left: 8%;
+    color: hsl(213, 96%, 18%);
+}
+
+.AddDescription {
+    color: hsl(231, 11%, 63%);
+    margin-top: 5px;
+}
+
+.AddPrice {
+    margin-left: auto;
+    color: hsl(243, 100%, 62%);
+}
+
+/* Finish */
+
+#Bill {
+    background: hsla(206, 94%, 87%, 0.24);
+    width: 70%;
+    padding: 20px
+}
+
+.TopBill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid grey;
+}
+
+.ChoiceValid {
+    color: hsl(213, 96%, 18%);
+    font-weight: 700;
+}
+
+.LinkChange {
+    color: hsl(243, 100%, 62%);
+    background: transparent;
+    border: 0;
+}
+
+.LinkChange:hover {
+    text-decoration: underline;
+}
+
+.PriceChoice {
+    font-weight: 600;
+    color: hsl(213, 96%, 18%);
+}
+
+.BottomBill {
+    padding: 10px 0;
+}
+
+.Adds {
+    padding: 5px 0;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.AddsActive {
+    display: flex !important;
+}
+
+.AddTitle {
+    color: hsl(231, 11%, 63%);
+}
+
+.PriceAdd {
+    color: hsl(213, 96%, 18%);
+    font-weight: 500;
+}
+
+.Result {
+    padding: 10px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.TotalText {
+    color: hsl(231, 11%, 63%);
+}
+
+.Total {
+    color: hsl(213, 96%, 18%);
+    font-size:1.5rem;
+    font-weight: 700;
+}
